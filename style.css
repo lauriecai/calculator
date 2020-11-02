@@ -5,22 +5,35 @@
 }
 body {
     background-color: #1b1c1f;
-}
-.title {
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-}
-.title h1 {
-    color: white;
-    font-family: 'Balsamiq Sans', cursive;
-    font-size: 22px;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-.title p {
     color: white;
     font-family: 'Roboto Mono', sans-serif;
-    font-size: 12px;
+    font-size: 10px;
+}
+
+/* calculator */
+.calculator {
+    position: relative;
+    width: 375px;
+    height: 667px;
+    border: 1px dotted powderblue;
+}
+
+/* screen */
+.screen {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    background-color: #22242c;
+}
+.screen .expression {
+    position: absolute;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    font-size: 1.6rem;
+}
+.screen .solution {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 2.2rem;
 }
