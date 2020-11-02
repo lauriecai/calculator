@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #1b1c1f;
+}
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.title h1 {
+    color: white;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.title p {
+    color: white;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 12px;
+}
