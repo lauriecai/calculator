@@ -12,9 +12,12 @@ body {
 
 /* calculator */
 .calculator {
-    position: relative;
+    position: absolute;
     width: 375px;
     height: 667px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* screen */
@@ -54,11 +57,11 @@ body {
     background: #262931;
     color: #fff;
     border: none;
-    width: 92px;
+    outline: none;
+    width: 93px;
     height: 98px;
     font-size: 1.6rem;
     cursor: pointer;
-    outline: none;
 }
 .operator {
     color: #ec8484;
@@ -69,5 +72,5 @@ body {
 }
 .zero {
     grid-column: span 2;
-    width: 186px;
+    width: 187px;
 }
