@@ -2,11 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Aldrich', sans-serif;
 }
 body {
     background-color: #1b1c1f;
     color: white;
-    font-family: 'Exo', sans-serif;
     font-size: 10px;
 }
 
@@ -60,6 +60,7 @@ body {
     outline: none;
     width: 93px;
     height: 98px;
+    /* font-family: 'Aldrich', sans-serif; */
     font-size: 1.6rem;
     cursor: pointer;
 }
