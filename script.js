@@ -47,3 +47,16 @@ function operate(a, b, operator) {
 }
 operate(7, 2, 'subtract');
 operate(7, 2, 'multiply');
+
+// Create the functions that populate the display when you click the number buttons… you should be storing the ‘display value’ in a variable somewhere for use in the next step.
+
+// initiate displayValue, set to ' '
+let displayValue = ' ';
+
+// set expression.textContent to reflect displayValue
+document.querySelector('.expression').textContent = displayValue;
+
+// add event listener to every button
+
+
+// on click, append text content into displayValue
