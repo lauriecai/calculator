@@ -1,3 +1,6 @@
+// ----- VARIABLES -----
+let a, b, operator;
+
 // ----- FUNCTIONS -----
 // Function: Add
 function add(a, b) {
@@ -59,7 +62,29 @@ let buttons = document.getElementsByClassName('calc-write');
 // add event listener to each button
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
+        // update display value
         displayValue += buttons[i].textContent;
         document.querySelector('.expression').textContent = displayValue;
+
+        // if variable a is empty, store number into variable a
+        if (buttons[i].classList.contains('number') && a == undefined) {
+            // store number into variable a
+            a = buttons[i].textContent;
+            console.log('The first number is: ' + a);
+        // otherwise, store into variable b
+        } else {
+            b = buttons[i].textContent;
+            console.log('The second number is: ' + b);
+        }        
+
+        // if button is an operator:
+        if (buttons[i].classList.contains('operator')) {
+            // store operator into operator
+            operator = buttons[i].textContent;
+            console.log(operator + ' is an operator!');
+        }
+
     });
 }
+
+// Make the calculator work! You’ll need to store the first number that is input into the calculator when a user presses an operator, and also save which operation has been chosen and then operate() on them when the user presses the “=” key.
