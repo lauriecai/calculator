@@ -1,3 +1,7 @@
+// ----- VARIABLES -----
+let a, b, operator, input, displayValue;
+clear();
+
 // ----- FUNCTIONS -----
 // Function: Add
 function add(a, b) {
@@ -38,18 +42,21 @@ function operate(a, b, operator) {
     }
 }
 
-// ----- VARIABLES -----
-let a, b, operator, input, displayValue;
-input = '';
-displayValue = '';
-operator = '';
+// Function: Clear
+function clear() {
+    input = '';
+    displayValue = '';
+    a = '';
+    b = '';
+    console.log('Expression cleared.');
+}
 
 // ----- SELECTORS -----
 let buttons = document.getElementsByClassName('calc-write');
 
 // ----- FLOW -----
 
-// add event listener to each button
+// add event listener to each calc-write button
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
 
@@ -75,3 +82,6 @@ for (let i = 0; i < buttons.length; i++) {
         }
     }
 )}
+
+// add event listener to clear button
+
