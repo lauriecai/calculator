@@ -1,34 +1,23 @@
-// ----- VARIABLES -----
-let a, b, operator, input;
-
 // ----- FUNCTIONS -----
 // Function: Add
 function add(a, b) {
     console.log(a + b);
 }
-add(5, 2);
-add(42, 163);
 
 // Function: Subtract
 function subtract(a, b) {
     console.log(a - b);
 }
-subtract(5, 1);
-subtract(1, 5);
 
 // Function: Multiply
 function multiply(a, b) {
     console.log(a * b);
 }
-multiply(3, 3);
-multiply(4, 4);
 
 // Function: Divide
 function divide(a, b) {
     console.log(a / b);
 }
-divide(4, 2);
-divide(3, 2);
 
 // Function: Operate
 function operate(a, b, operator) {
@@ -48,16 +37,14 @@ function operate(a, b, operator) {
         default: console.log('huh?');
     }
 }
-operate(7, 2, 'subtract');
-operate(7, 2, 'multiply');
 
-// Create the functions that populate the display when you click the number buttons… you should be storing the ‘display value’ in a variable somewhere for use in the next step.
+// ----- VARIABLES -----
+let a, b, operator, input, displayValue;
 
-// initiate displayValue, set to ' '
-let displayValue = '';
-
-// select all buttons
+// ----- SELECTORS -----
 let buttons = document.getElementsByClassName('calc-write');
+
+// ----- FLOW -----
 
 // add event listener to each button
 for (let i = 0; i < buttons.length; i++) {
@@ -83,6 +70,23 @@ for (let i = 0; i < buttons.length; i++) {
             operator = buttons[i].textContent;
             console.log(operator + ' is an operator!');
         }
-
     });
 }
+
+// what if a number is multiple digits?
+// -
+// user enters digit, store digit into input variable
+// user enters another digit, append digit into input variable
+// continue to append until user clicks operator
+// when operator is clicked, if variable a is empty, store into variable a
+// otherwise, store into variable b
+// operate
+
+
+
+// what if the expression contains more than 2 numbers and 1 expression?
+// -
+// if variable a and b are both filled, operate
+// update variable a with newly operated value
+// store subsequent number into variable b
+// operate
