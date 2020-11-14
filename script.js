@@ -58,24 +58,16 @@ for (let i = 0; i < buttons.length; i++) {
         // if button is a number, keep storing additional digits into input variable
         if (buttons[i].classList.contains('number')) {
             input += buttons[i].textContent;
-            console.log('input: ' + input);
-            console.log('a: ' + a);
-        }
-
-        // when user clicks operator, assign input variable value to variable
-
-        // if variable a is empty, store number into variable a
-        if (buttons[i].classList.contains('operator') && a == undefined) {
-            // // store number into variable a
+            console.log('input: ' + input + '; a: ' + a + ' b: ' + b);
+        // if button is an operator & variable a is empty, store input into variable a
+        } else if (buttons[i].classList.contains('operator') && a == undefined) {
             a = input;
-            console.log(a);
-            // // store selected operator into operator variable
-            // operator = buttons[i].textContent;
-            // console.log('The first number is: ' + a + ' and the operator is: ' + operator);
-        // otherwise, store into variable b
+            input = '';
+            console.log('input: ' + input + '; a: ' + a + ' b: ' + b);
         } else {
-            
-        }  
+            b = input;
+            console.log('input: ' + input + '; a: ' + a + ' b: ' + b);
+        }
         
     });
 }
