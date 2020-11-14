@@ -1,5 +1,5 @@
 // ----- VARIABLES -----
-let a, b, operator;
+let a, b, operator, input;
 
 // ----- FUNCTIONS -----
 // Function: Add
@@ -86,5 +86,3 @@ for (let i = 0; i < buttons.length; i++) {
 
     });
 }
-
-// Make the calculator work! You’ll need to store the first number that is input into the calculator when a user presses an operator, and also save which operation has been chosen and then operate() on them when the user presses the “=” key.
