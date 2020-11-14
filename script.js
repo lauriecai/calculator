@@ -1,38 +1,38 @@
 // ----- FUNCTIONS -----
 // Function: Add
 function add(a, b) {
-    console.log(a + b);
+    return(a + b);
 }
 
 // Function: Subtract
 function subtract(a, b) {
-    console.log(a - b);
+    return(a - b);
 }
 
 // Function: Multiply
 function multiply(a, b) {
-    console.log(a * b);
+    return(a * b);
 }
 
 // Function: Divide
 function divide(a, b) {
-    console.log(a / b);
+    return(a / b);
 }
 
 // Function: Operate
 function operate(a, b, operator) {
     switch (operator) {
-        case 'add': 
-            add(a, b);
+        case '+': 
+            return add(a, b);
             break;
-        case 'subtract': 
-            subtract(a, b);
+        case '-': 
+            return subtract(a, b);
             break;
-        case 'multiply': 
-            multiply(a, b);
+        case '*': 
+            return multiply(a, b);
             break;
-        case 'divide':
-            divide(a, b);
+        case '/':
+            return divide(a, b);
             break;
         default: console.log('huh?');
     }
@@ -42,6 +42,7 @@ function operate(a, b, operator) {
 let a, b, operator, input, displayValue;
 input = '';
 displayValue = '';
+operator = '';
 
 // ----- SELECTORS -----
 let buttons = document.getElementsByClassName('calc-write');
@@ -51,33 +52,26 @@ let buttons = document.getElementsByClassName('calc-write');
 // add event listener to each button
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
-        // update display value
-        displayValue += buttons[i].textContent;
-        document.querySelector('.expression').textContent = displayValue;
+
+        // update display value & avoid displaying equals
+        if (buttons[i].textContent != '=') {
+            displayValue += buttons[i].textContent;
+            document.querySelector('.expression').textContent = displayValue;
+        }
 
         // if button is a number, keep storing additional digits into input variable
         if (buttons[i].classList.contains('number')) {
             input += buttons[i].textContent;
-            console.log('input: ' + input + '; a: ' + a + ' b: ' + b);
         // if button is an operator & variable a is empty, store input into variable a
         } else if (buttons[i].classList.contains('operator') && a == undefined) {
             a = input;
+            operator = buttons[i].textContent;
             input = '';
-            console.log('input: ' + input + '; a: ' + a + ' b: ' + b);
-        } else {
+        // if button is an operator & variable b is empty, store input into variable b
+        } else if (buttons[i].classList.contains('operator') && b == undefined) {
             b = input;
-            console.log('input: ' + input + '; a: ' + a + ' b: ' + b);
+            input = '';
+            document.querySelector('.solution').textContent = (operate(parseInt(a), parseInt(b), operator));
         }
-        
-    });
-}
-
-// what if a number is multiple digits?
-// -
-// user enters digit, store digit into input variable
-// user enters another digit, append digit into input variable
-// continue to append until user clicks operator
-// when operator is clicked, if variable a is empty, store into variable a
-// otherwise, store into variable b
-// operate
-
+    }
+)}
