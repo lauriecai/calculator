@@ -40,6 +40,8 @@ function operate(a, b, operator) {
 
 // ----- VARIABLES -----
 let a, b, operator, input, displayValue;
+input = '';
+displayValue = '';
 
 // ----- SELECTORS -----
 let buttons = document.getElementsByClassName('calc-write');
@@ -53,23 +55,28 @@ for (let i = 0; i < buttons.length; i++) {
         displayValue += buttons[i].textContent;
         document.querySelector('.expression').textContent = displayValue;
 
+        // if button is a number, keep storing additional digits into input variable
+        if (buttons[i].classList.contains('number')) {
+            input += buttons[i].textContent;
+            console.log('input: ' + input);
+            console.log('a: ' + a);
+        }
+
+        // when user clicks operator, assign input variable value to variable
+
         // if variable a is empty, store number into variable a
-        if (buttons[i].classList.contains('number') && a == undefined) {
-            // store number into variable a
-            a = buttons[i].textContent;
-            console.log('The first number is: ' + a);
+        if (buttons[i].classList.contains('operator') && a == undefined) {
+            // // store number into variable a
+            a = input;
+            console.log(a);
+            // // store selected operator into operator variable
+            // operator = buttons[i].textContent;
+            // console.log('The first number is: ' + a + ' and the operator is: ' + operator);
         // otherwise, store into variable b
         } else {
-            b = buttons[i].textContent;
-            console.log('The second number is: ' + b);
-        }        
-
-        // if button is an operator:
-        if (buttons[i].classList.contains('operator')) {
-            // store operator into operator
-            operator = buttons[i].textContent;
-            console.log(operator + ' is an operator!');
-        }
+            
+        }  
+        
     });
 }
 
@@ -82,11 +89,3 @@ for (let i = 0; i < buttons.length; i++) {
 // otherwise, store into variable b
 // operate
 
-
-
-// what if the expression contains more than 2 numbers and 1 expression?
-// -
-// if variable a and b are both filled, operate
-// update variable a with newly operated value
-// store subsequent number into variable b
-// operate
