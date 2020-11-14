@@ -26,16 +26,16 @@ function divide(a, b) {
 // Function: Operate
 function operate(a, b, operator) {
     switch (operator) {
-        case '+': 
+        case ' + ': 
             return add(a, b);
             break;
-        case '-': 
+        case ' - ': 
             return subtract(a, b);
             break;
-        case '*': 
+        case ' * ': 
             return multiply(a, b);
             break;
-        case '/':
+        case ' / ':
             return divide(a, b);
             break;
         default: console.log('huh?');
@@ -46,9 +46,12 @@ function operate(a, b, operator) {
 function clear() {
     input = '';
     displayValue = '';
-    a = '';
-    b = '';
-    console.log('Expression cleared.');
+    a = undefined;
+    b = undefined;
+    console.log('Expression cleared. Input: ' + input + ' displayValue: ' + displayValue + ' a: ' + a + ' b: ' + b);
+    // update screen
+    document.querySelector('.expression').textContent = displayValue;
+    document.querySelector('.solution').textContent = '';
 }
 
 // ----- SELECTORS -----
@@ -73,6 +76,7 @@ for (let i = 0; i < buttons.length; i++) {
         } else if (buttons[i].classList.contains('operator') && a == undefined) {
             a = input;
             operator = buttons[i].textContent;
+            console.log(operator);
             input = '';
         // if button is an operator & variable b is empty, store input into variable b
         } else if (buttons[i].classList.contains('operator') && b == undefined) {
@@ -84,4 +88,4 @@ for (let i = 0; i < buttons.length; i++) {
 )}
 
 // add event listener to clear button
-
+document.getElementById('clear').addEventListener('click', clear());
