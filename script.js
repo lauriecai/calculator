@@ -5,22 +5,22 @@ clear();
 // ----- FUNCTIONS -----
 // Function: Add
 function add(a, b) {
-    return(a + b);
+    return a + b;
 }
 
 // Function: Subtract
 function subtract(a, b) {
-    return(a - b);
+    return a - b;
 }
 
 // Function: Multiply
 function multiply(a, b) {
-    return(a * b);
+    return a * b;
 }
 
 // Function: Divide
 function divide(a, b) {
-    return(a / b);
+    return a / b;
 }
 
 // Function: Operate
@@ -72,12 +72,14 @@ for (let i = 0; i < buttons.length; i++) {
         // if button is a number, keep storing additional digits into input variable
         if (buttons[i].classList.contains('number')) {
             input += buttons[i].textContent;
+
         // if button is an operator & variable a is empty, store input into variable a
         } else if (buttons[i].classList.contains('operator') && a == undefined) {
             a = input;
             operator = buttons[i].textContent;
             console.log(operator);
             input = '';
+
         // if button is an operator & variable b is empty, store input into variable b
         } else if (buttons[i].classList.contains('operator') && b == undefined) {
             b = input;
@@ -89,3 +91,8 @@ for (let i = 0; i < buttons.length; i++) {
 
 // add event listener to clear button
 document.getElementById('clear').addEventListener('click', clear());
+
+// Users should be able to string together several operations and get the right answer, with each pair of numbers being evaluated at a time. For example, 12 + 7 - 5 * 3 = should yield 42. 
+// Note: Your calculator should not evaluate more than a single pair of numbers at a time. If you enter a number then an operator and another number that calculation should be displayed if your next input is an operator. The result of the calculation should be used as the first number in your new calculation.
+
+
