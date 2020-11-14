@@ -48,10 +48,15 @@ function clear() {
     displayValue = '';
     a = undefined;
     b = undefined;
-    console.log('Expression cleared. Input: ' + input + ' displayValue: ' + displayValue + ' a: ' + a + ' b: ' + b);
+    console.log('Expression cleared.');
     // update screen
     document.querySelector('.expression').textContent = displayValue;
     document.querySelector('.solution').textContent = '';
+}
+
+// Function: Reset input
+function resetInput() {
+    input = '';
 }
 
 // ----- SELECTORS -----
@@ -63,13 +68,15 @@ let buttons = document.getElementsByClassName('calc-write');
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
 
+        console.log(buttons[i].textContent);
+
         // update display value & avoid displaying equals
         if (buttons[i].textContent != '=') {
             displayValue += buttons[i].textContent;
             document.querySelector('.expression').textContent = displayValue;
         }
 
-        // if button is a number, keep storing additional digits into input variable
+        // if button is a number, store all digits into input variable
         if (buttons[i].classList.contains('number')) {
             input += buttons[i].textContent;
 
@@ -77,22 +84,29 @@ for (let i = 0; i < buttons.length; i++) {
         } else if (buttons[i].classList.contains('operator') && a == undefined) {
             a = input;
             operator = buttons[i].textContent;
-            console.log(operator);
-            input = '';
+            resetInput();
 
         // if button is an operator & variable b is empty, store input into variable b
         } else if (buttons[i].classList.contains('operator') && b == undefined) {
             b = input;
-            input = '';
+            resetInput();
             document.querySelector('.solution').textContent = (operate(parseInt(a), parseInt(b), operator));
         }
     }
 )}
 
 // add event listener to clear button
-document.getElementById('clear').addEventListener('click', clear());
+document.getElementById('clear').addEventListener('click', clear);
 
 // Users should be able to string together several operations and get the right answer, with each pair of numbers being evaluated at a time. For example, 12 + 7 - 5 * 3 = should yield 42. 
 // Note: Your calculator should not evaluate more than a single pair of numbers at a time. If you enter a number then an operator and another number that calculation should be displayed if your next input is an operator. The result of the calculation should be used as the first number in your new calculation.
+
+// digits are being stored in input
+// user clicks operator
+// if a is empty, store input in variable a
+// digits are being stored in input
+// if user hits equals operator, store input in variable b and operate (a, b, operator) -> display result
+// if user hits other operators (+, -, *, /) store input in variable b and operate(a, b, operator) -> store result into variable a and clear variable b, reset input
+
 
 
