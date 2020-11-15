@@ -5,22 +5,22 @@ clear();
 // ----- FUNCTIONS -----
 // Function: Add
 function add(a, b) {
-    return a + b;
+    return (a + b).toFixed(2);
 }
 
 // Function: Subtract
 function subtract(a, b) {
-    return a - b;
+    return (a - b).toFixed(2);
 }
 
 // Function: Multiply
 function multiply(a, b) {
-    return a * b;
+    return (a * b).toFixed(2);
 }
 
 // Function: Divide
 function divide(a, b) {
-    return a / b;
+    return (a / b).toFixed(2);
 }
 
 // Function: Operate
