@@ -96,14 +96,14 @@ for (let i = 0; i < buttons.length; i++) {
         } else if (buttons[i].id == 'equals') {
             b = input;
             resetInput();
-            solution = (operate(parseInt(a), parseInt(b), operator));
+            solution = (operate(parseFloat(a), parseFloat(b), operator));
             document.querySelector('.solution').textContent = solution;
             console.log('input: ' + input + ' a: ' + a + ' b: ' + b + ' solution: ' + solution);
         // if user clicks operator & variable b is empty, store input into variable b & compute, store result in variable a
         } else if (buttons[i].classList.contains('operator')) {
             b = input
             resetInput();
-            solution = (operate(parseInt(a), parseInt(b), operator));
+            solution = (operate(parseFloat(a), parseFloat(b), operator));
             a = solution;
             operator = buttons[i].textContent;
         }
@@ -112,3 +112,6 @@ for (let i = 0; i < buttons.length; i++) {
 
 // add event listener to clear button
 document.getElementById('clear').addEventListener('click', clear);
+
+// Support usage of decimals. Round answers with long decimals so they don't overflow the screen
+
