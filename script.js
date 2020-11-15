@@ -112,16 +112,3 @@ for (let i = 0; i < buttons.length; i++) {
 
 // add event listener to clear button
 document.getElementById('clear').addEventListener('click', clear);
-
-// Users should be able to string together several operations and get the right answer, with each pair of numbers being evaluated at a time. For example, 12 + 7 - 5 * 3 = should yield 42. 
-// Note: Your calculator should not evaluate more than a single pair of numbers at a time. If you enter a number then an operator and another number that calculation should be displayed if your next input is an operator. The result of the calculation should be used as the first number in your new calculation.
-
-// digits are being stored in input
-// user clicks operator
-// if a is empty, store input in variable a
-// digits are being stored in input
-// if user hits equals operator, store input in variable b and operate (a, b, operator) -> display result
-// if user hits other operators (+, -, *, /) store input in variable b and operate(a, b, operator) -> store result into variable a and clear variable b, reset input
-
-
-
