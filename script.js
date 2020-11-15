@@ -1,5 +1,5 @@
 // ----- VARIABLES -----
-let a, b, operator, input, displayValue;
+let a, b, operator, input, displayValue, solution;
 clear();
 
 // ----- FUNCTIONS -----
@@ -62,13 +62,15 @@ function resetInput() {
 // ----- SELECTORS -----
 let buttons = document.getElementsByClassName('calc-write');
 
+
+
+
+
 // ----- FLOW -----
 
 // add event listener to each calc-write button
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
-
-        console.log(buttons[i].textContent);
 
         // update display value & avoid displaying equals
         if (buttons[i].textContent != '=') {
@@ -79,18 +81,31 @@ for (let i = 0; i < buttons.length; i++) {
         // if button is a number, store all digits into input variable
         if (buttons[i].classList.contains('number')) {
             input += buttons[i].textContent;
+            console.log('input: ' + input + ' a: ' + a + ' b: ' + b);
 
-        // if button is an operator & variable a is empty, store input into variable a
-        } else if (buttons[i].classList.contains('operator') && a == undefined) {
+        }
+        
+        // if user clicks operator & a is empty, store input into variable a
+        if (buttons[i].classList.contains('operator') && a == undefined) {
             a = input;
             operator = buttons[i].textContent;
             resetInput();
+            console.log('input: ' + input + ' a: ' + a + ' b: ' + b);
 
-        // if button is an operator & variable b is empty, store input into variable b
-        } else if (buttons[i].classList.contains('operator') && b == undefined) {
+        // if user clicks equals & variable b is empty, store input into variable b & compute, display result
+        } else if (buttons[i].id == 'equals') {
             b = input;
             resetInput();
-            document.querySelector('.solution').textContent = (operate(parseInt(a), parseInt(b), operator));
+            solution = (operate(parseInt(a), parseInt(b), operator));
+            document.querySelector('.solution').textContent = solution;
+            console.log('input: ' + input + ' a: ' + a + ' b: ' + b + ' solution: ' + solution);
+        // if user clicks operator & variable b is empty, store input into variable b & compute, store result in variable a
+        } else if (buttons[i].classList.contains('operator')) {
+            b = input
+            resetInput();
+            solution = (operate(parseInt(a), parseInt(b), operator));
+            a = solution;
+            operator = buttons[i].textContent;
         }
     }
 )}
