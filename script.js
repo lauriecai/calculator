@@ -5,12 +5,12 @@ clear();
 // ----- FUNCTIONS -----
 // Function: Add
 function add(a, b) {
-    return (a + b).toFixed(2);
+    return a + b;
 }
 
 // Function: Subtract
 function subtract(a, b) {
-    return (a - b).toFixed(2);
+    return a - b;
 }
 
 // Function: Multiply
@@ -113,5 +113,5 @@ for (let i = 0; i < buttons.length; i++) {
 // add event listener to clear button
 document.getElementById('clear').addEventListener('click', clear);
 
-// Support usage of decimals. Round answers with long decimals so they don't overflow the screen
+// Disable repeat decimals within single input instance
 
